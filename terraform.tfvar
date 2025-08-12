@@ -1,0 +1,17 @@
+# HCP Terraform Configuration
+tfc_organization = "your-organization-name"
+tfc_workspace    = "aws-s3-production"
+
+# AWS Configuration
+aws_region  = "us-east-1"
+bucket_name = "my-company-prod-bucket-2024"
+environment = "prod"
+
+# Optional Features
+enable_website_hosting = false
+enable_cors           = true
+enable_lifecycle      = true
+
+# Lifecycle Settings
+lifecycle_noncurrent_version_expiration_days        = 30
+lifecycle_abort_incomplete_multipart_upload_days    = 7
