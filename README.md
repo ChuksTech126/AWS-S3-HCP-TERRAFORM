@@ -36,17 +36,16 @@ This configuration creates:
 1. Log in to HCP Terraform
 2. Create a new organization (if needed)
 3. Create a new workspace:
-   - Name: `aws-s3-production`
+   - Name: `as you wish`
    - Choose workflow type (VCS or API-driven)
 
 ### 2. Configure AWS Credentials
 
-In your HCP Terraform workspace, add these **Environment Variables** (mark as sensitive):
+In your HCP Terraform workspace, add these **Environment Variables  in the HCP TERRAFORM** (mark as sensitive):
 
 ```
 AWS_ACCESS_KEY_ID=your-access-key-id
 AWS_SECRET_ACCESS_KEY=your-secret-access-key
-AWS_DEFAULT_REGION=us-east-1
 ```
 
 ### 3. Configure Terraform Variables
