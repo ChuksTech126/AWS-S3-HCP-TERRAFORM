@@ -22,6 +22,7 @@ provider "aws" {
   region = var.aws_region
 }
 
+
 # S3 Bucket
 resource "aws_s3_bucket" "main" {
   bucket = var.bucket_name
@@ -89,21 +90,17 @@ resource "aws_s3_bucket_cors_configuration" "main" {
   }
 }
 
-# Optional: S3 Bucket Lifecycle Configuration
 resource "aws_s3_bucket_lifecycle_configuration" "main" {
-  count  = var.enable_lifecycle ? 1 : 0
   bucket = aws_s3_bucket.main.id
 
   rule {
-    id     = "delete_old_versions"
+    id     = "expire-logs"
     status = "Enabled"
 
-    noncurrent_version_expiration {
-      noncurrent_days = var.lifecycle_noncurrent_version_expiration_days
-    }
+    prefix = ""  # Apply to all objects
 
-    abort_incomplete_multipart_upload {
-      days_after_initiation = var.lifecycle_abort_incomplete_multipart_upload_days
+    expiration {
+      days = 30
     }
   }
 }

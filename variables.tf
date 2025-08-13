@@ -19,7 +19,7 @@ variable "aws_region" {
 variable "bucket_name" {
   description = "Name of the S3 bucket (must be globally unique)"
   type        = string
-  default     = "Chuks-S3"
+  default     = "chuks-s3-b123-me666"
 }
 
 variable "environment" {
